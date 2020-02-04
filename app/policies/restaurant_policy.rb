@@ -3,6 +3,7 @@ class RestaurantPolicy < ApplicationPolicy
     def resolve
       # any one can view any restaurant
       scope.all
+      scope.where(user: user) #this means that the current user can only view the restaurants that he has created, filters out to specifc users
     end
   end
 
