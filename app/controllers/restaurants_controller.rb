@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    @restaurants = policy_scope(Restaurant).order(created_at: :asc)
   end
 
   # GET /restaurants/1
